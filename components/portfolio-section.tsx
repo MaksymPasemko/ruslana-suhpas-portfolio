@@ -21,6 +21,8 @@ const photos = [
   { id: 15, src: "/images/portfolio/img16.jpg" },
   { id: 16, src: "/images/portfolio/img15.jpg" },
   { id: 17, src: "/images/portfolio/img14.jpg" },
+  { id: 18, src: "/images/portfolio/img18.jpg" },
+
 ]
 
 export function PortfolioSection() {

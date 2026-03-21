@@ -47,8 +47,8 @@ export function ServicesSection() {
         </div>
 
         {/* Services — horizontal scroll on mobile, grid on desktop */}
-        <div className="-mx-5 sm:mx-0 overflow-x-auto sm:overflow-visible">
-          <div className="flex sm:grid sm:grid-cols-3 gap-px bg-border min-w-[600px] sm:min-w-0 px-5 sm:px-0">
+        <div className="overflow-x-auto sm:overflow-visible">
+          <div className="flex sm:grid sm:grid-cols-3 gap-px bg-border min-w-[600px] sm:min-w-0">
             {services.map((service) => (
               <article
                 key={service.number}
@@ -91,10 +91,7 @@ export function ServicesSection() {
             ))}
           </div>
         </div>
-        {/* Scroll hint on mobile */}
-        <p className="sm:hidden text-center text-[10px] tracking-widest uppercase text-muted-foreground/60 mt-4">
-          ← прокрутіть →
-        </p>
+       
 
         {/* Why visual content matters */}
         <div className="mt-16 sm:mt-24 lg:mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
