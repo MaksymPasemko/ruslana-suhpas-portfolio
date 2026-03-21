@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     'Професійна предметна фотографія для брендів та e-commerce. Студійні комерційні зображення для брендів та інтернет-магазинів.',
   keywords: ['предметна фотографія', 'комерційна фотографія', 'e-commerce фотографія', 'продуктова зйомка', 'Ruslana Sukhpas'],
   openGraph: {
-    title: 'Ruslana Sukhpas — Предметна фотографія',
+    title: 'Ruslana Suhpas — Предметна фотографія',
     description: 'Студійна комерційна фотографія для брендів та e-commerce компаній.',
     type: 'website',
   },
