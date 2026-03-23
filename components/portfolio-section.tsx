@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 
 const photos = [
-  { id: 1, src: "/images/portfolio/img9.jpg" },
+  { id: 1, src: "/images/portfolio/img15.jpg" },
   { id: 2, src: "/images/portfolio/img2.jpg" },
   { id: 3, src: "/images/portfolio/img17.jpg" },
   { id: 4, src: "/images/portfolio/img4.jpg" },
@@ -13,7 +13,7 @@ const photos = [
   { id: 7, src: "/images/portfolio/img7.jpg" },
   { id: 8, src: "/images/portfolio/img8.jpg" },
   { id: 9, src: "/images/portfolio/img3.jpg" },
-  { id: 10, src: "/images/portfolio/img15.jpg" },
+  { id: 10, src: "/images/portfolio/img9.jpg" },
   { id: 11, src: "/images/portfolio/img10.jpg" },
   { id: 12, src: "/images/portfolio/img11.jpg" },
   { id: 13, src: "/images/portfolio/img12.jpg" },
