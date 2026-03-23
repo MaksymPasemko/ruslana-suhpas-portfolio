@@ -13,7 +13,7 @@ const photos = [
   { id: 7, src: "/images/portfolio/img7.jpg" },
   { id: 8, src: "/images/portfolio/img8.jpg" },
   { id: 9, src: "/images/portfolio/img3.jpg" },
-  { id: 10, src: "/images/portfolio/img9.jpg" },
+  { id: 10, src: "/images/portfolio/img15.jpg" },
   { id: 11, src: "/images/portfolio/img10.jpg" },
   { id: 12, src: "/images/portfolio/img11.jpg" },
   { id: 13, src: "/images/portfolio/img12.jpg" },
