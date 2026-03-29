@@ -4,9 +4,11 @@ import { useState } from "react"
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setSubmitError(null)
     const form = e.currentTarget
     const data = {
       name: (form.querySelector("#name") as HTMLInputElement).value,
@@ -14,11 +16,18 @@ export function ContactSection() {
       brand: (form.querySelector("#brand") as HTMLInputElement).value,
       message: (form.querySelector("#message") as HTMLTextAreaElement).value,
     }
-    await fetch("/api/contact", {
+    const response = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
+
+    if (!response.ok) {
+      const payload = await response.json().catch(() => null)
+      setSubmitError(payload?.error ?? "Не вдалося надіслати повідомлення. Спробуйте ще раз.")
+      return
+    }
+
     setSubmitted(true)
   }
 
@@ -177,6 +186,9 @@ export function ContactSection() {
                 >
                   Надіслати запит
                 </button>
+                {submitError && (
+                  <p className="text-sm text-destructive">{submitError}</p>
+                )}
               </form>
             )}
           </div>

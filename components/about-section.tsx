@@ -41,24 +41,6 @@ export function AboutSection() {
               </p>
             </div>
 
-            {/* Stocks */}
-            <div className="mt-8 sm:mt-10 pt-8 sm:pt-10 border-t border-border">
-              <p className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4 sm:mb-5 font-sans">
-                Роботи опубліковані на
-              </p>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                {["Shutterstock", "Adobe Stock", "Depositphotos", "Dreamstime", "Getty Images"].map(
-                  (stock) => (
-                    <span
-                      key={stock}
-                      className="text-[10px] sm:text-xs border border-border px-3 sm:px-4 py-1.5 sm:py-2 text-muted-foreground hover:border-gold hover:text-gold transition-colors duration-300 tracking-wide"
-                    >
-                      {stock}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
           </div>
         </div>
       </div>

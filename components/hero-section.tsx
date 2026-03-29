@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100svh] flex items-end sm:items-center overflow-hidden">
+    <section id="hero" className="relative min-h-[82svh] sm:min-h-[100svh] flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -39,35 +39,14 @@ export function HeroSection() {
             Я створюю студійні комерційні зображення для брендів та e-commerce компаній, яким потрібна точна візуальна подача продукту, стабільна естетична мова та надійний виробничий процес.
           </p>
 
-          {/* CTAs — stack on mobile */}
+          {/* CTA */}
           <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
             <a
-              href="#contact"
+              href="#workflow"
               className="inline-flex items-center justify-center bg-gold text-primary-foreground text-xs tracking-[0.2em] uppercase px-6 sm:px-8 py-4 hover:bg-gold/90 transition-colors duration-300 font-sans touch-manipulation min-h-[52px]"
             >
               Розпочати проєкт
             </a>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center border border-foreground/30 text-foreground text-xs tracking-[0.2em] uppercase px-6 sm:px-8 py-4 hover:border-gold hover:text-gold transition-all duration-300 font-sans touch-manipulation min-h-[52px]"
-            >
-              Переглянути послуги
-            </a>
-          </div>
-
-          {/* Stock badges — scrollable row on mobile */}
-          <div className="mt-8 sm:mt-12">
-            <span className="block text-xs text-muted-foreground tracking-wider uppercase mb-3">Роботи на стоках:</span>
-            <div className="flex items-center gap-2 flex-wrap">
-              {["Shutterstock", "Adobe Stock", "Getty Images", "Depositphotos"].map((stock) => (
-                <span
-                  key={stock}
-                  className="text-[10px] sm:text-xs border border-border px-2.5 sm:px-3 py-1 text-muted-foreground tracking-wide whitespace-nowrap"
-                >
-                  {stock}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>

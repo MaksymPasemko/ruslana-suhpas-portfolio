@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 
 const navLinks = [
   { label: "Послуги", href: "#services"},
@@ -14,6 +13,18 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const scrollToSection = (href: string) => {
+    const sectionId = href.replace("#", "")
+    setMenuOpen(false)
+
+    requestAnimationFrame(() => {
+      const section = document.getElementById(sectionId)
+      if (!section) return
+      section.scrollIntoView({ behavior: "smooth", block: "start" })
+      window.history.replaceState(null, "", `#${sectionId}`)
+    })
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -33,20 +44,31 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled || menuOpen ? "bg-background/98 backdrop-blur-sm border-b border-border" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 ${
+        menuOpen
+          ? "bg-black border-b border-border"
+          : scrolled
+            ? "bg-background/98 backdrop-blur-sm border-b border-border"
+            : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between h-14 sm:h-16 lg:h-20">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none group" onClick={() => setMenuOpen(false)}>
+        <a
+          href="#hero"
+          className="flex flex-col leading-none group"
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToSection("#hero")
+          }}
+        >
           <span className="font-serif text-lg sm:text-xl font-light tracking-widest text-foreground uppercase">
             Руслана
           </span>
           <span className="font-serif text-[10px] sm:text-xs tracking-[0.4em] text-gold uppercase">
             Сухомлин
           </span>
-        </Link>
+        </a>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
@@ -55,6 +77,10 @@ export function Navbar() {
               <a
                 href={link.href}
                 className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-gold transition-colors duration-300"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(link.href)
+                }}
               >
                 {link.label}
               </a>
@@ -75,19 +101,22 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu — full screen overlay */}
+      {/* Mobile menu */}
       <div
-        className={`md:hidden fixed inset-0 top-14 sm:top-16 bg-background z-40 transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 top-14 sm:top-16 bg-black/100 z-40 transition-opacity duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col h-full px-5 pt-8 pb-safe-bottom justify-between" style={{ paddingBottom: "max(3rem, env(safe-area-inset-bottom))" }}>
-          <nav>
+        <div className="flex flex-col px-5 pt-4 pb-6 min-h-[calc(100svh-3.5rem)] sm:min-h-[calc(100svh-4rem)]">
+          <nav className="flex-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(link.href)
+                }}
                 className="flex items-center justify-between py-5 border-b border-border/50 group touch-manipulation"
               >
                 <span className="font-serif text-2xl font-light text-foreground group-hover:text-gold transition-colors duration-300">
@@ -101,11 +130,14 @@ export function Navbar() {
           </nav>
 
           {/* Bottom CTA */}
-          <div className="mt-10">
+          <div className="pt-5 mt-auto">
             <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">Готові розпочати?</p>
             <a
               href="#contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection("#contact")
+              }}
               className="flex items-center justify-center w-full bg-gold text-primary-foreground text-xs tracking-[0.2em] uppercase px-8 py-4 hover:bg-gold/90 transition-colors duration-300 font-sans touch-manipulation"
             >
               Розпочати проєкт

@@ -38,7 +38,7 @@ export function ServicesSection() {
               Послуги
             </p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-foreground text-balance">
-              Формати зйомки
+              Зйомка для соціальних мереж
             </h2>
           </div>
           <p className="text-muted-foreground leading-relaxed max-w-sm text-sm">
@@ -94,8 +94,8 @@ export function ServicesSection() {
        
 
         {/* Why visual content matters */}
-        <div className="mt-16 sm:mt-24 lg:mt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
-          <div>
+        <div className="mt-16 sm:mt-24 lg:mt-36 flex justify-start">
+          <div className="max-w-3xl">
             <p className="text-[10px] sm:text-xs tracking-[0.4em] uppercase text-gold mb-3 sm:mb-4 font-sans">
               Стратегічна цінність
             </p>
@@ -109,24 +109,6 @@ export function ServicesSection() {
             <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">
               Системний підхід до створення візуальних матеріалів дозволяє маркетинговим командам підтримувати впізнавану стилістику бренду та будувати стабільний контентний потік для довгострокового розвитку.
             </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 sm:gap-6">
-            {[
-              { stat: "Nikon D5600", label: "та Fujifilm X‑T50" },
-              { stat: "5 стоків", label: "Shutterstock, Getty та інші" },
-              { stat: "Макро", label: "деталі та текстури" },
-              { stat: "Студія", label: "контрольоване освітлення" },
-            ].map((item) => (
-              <div key={item.stat} className="border border-border p-4 sm:p-6 bg-surface">
-                <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-light text-gold mb-1.5 sm:mb-2">
-                  {item.stat}
-                </div>
-                <div className="text-[10px] sm:text-xs text-muted-foreground tracking-wide uppercase leading-relaxed">
-                  {item.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
